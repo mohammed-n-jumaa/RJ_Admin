@@ -1,0 +1,236 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.header {
+  position: sticky;
+  top: 0;
+  height: $header-height;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 900;
+  backdrop-filter: blur(10px);
+  
+  &__container {
+    @include flex-between;
+    height: 100%;
+    padding: 0 $spacing-lg;
+    gap: $spacing-md;
+    
+    @include mobile {
+      padding: 0 $spacing-sm;
+      gap: $spacing-xs;
+    }
+  }
+  
+  // Right Side
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex: 1;
+    
+    @include mobile {
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__logo {
+    @include flex-center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-dark 100%);
+    border-radius: $radius-md;
+    box-shadow: 0 0 15px rgba($primary-pink, 0.3);
+    cursor: pointer;
+    
+    &-emoji {
+      font-size: 1.5rem;
+    }
+    
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      
+      &-emoji {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  
+  &__section {
+    @include flex-column;
+    gap: 2px;
+    
+    @include mobile {
+      display: none;
+    }
+  }
+  
+  &__section-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  
+  &__section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    
+    background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-light 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  // Center
+  &__center {
+    @include flex-center;
+    flex: 0 0 auto;
+    
+    @include mobile {
+      display: none;
+    }
+  }
+  
+  &__mode-capsule {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.5rem 1.2rem;
+    background: rgba($primary-pink, 0.1);
+    border: 1px solid rgba($primary-pink, 0.3);
+    border-radius: 25px;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: rgba($primary-pink, 0.15);
+      border-color: rgba($primary-pink, 0.5);
+      box-shadow: 0 0 15px rgba($primary-pink, 0.2);
+    }
+  }
+  
+  &__mode-indicator {
+    width: 8px;
+    height: 8px;
+    background: $primary-pink;
+    border-radius: 50%;
+    animation: modePulse 2s ease-in-out infinite;
+  }
+  
+  &__mode-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary-pink;
+  }
+  
+  // Left Side
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex: 1;
+    justify-content: flex-end;
+    
+    @include mobile {
+      gap: $spacing-xs;
+    }
+  }
+  
+  &__action-btn {
+    @include flex-center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: var(--bg-hover);
+      border-color: $primary-pink;
+      color: $primary-pink;
+      box-shadow: 0 0 10px rgba($primary-pink, 0.2);
+    }
+    
+    @include mobile {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
+  &__notifications {
+    .badge {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+    }
+  }
+  
+  &__theme-toggle {
+    svg {
+      color: var(--text-secondary);
+      transition: color $transition-normal;
+    }
+    
+    &:hover svg {
+      color: $primary-pink;
+    }
+  }
+  
+  &__btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.6rem 1.2rem;
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all $transition-normal;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    span {
+      @include mobile {
+        display: none;
+      }
+    }
+    
+    &--secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      
+      &:hover {
+        background: var(--bg-hover);
+        border-color: $primary-pink;
+        color: $primary-pink;
+      }
+    }
+    
+    &--primary {
+      background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-dark 100%);
+      border: 1px solid transparent;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba($primary-pink, 0.3);
+      
+      &:hover {
+        box-shadow: 0 0 25px rgba($primary-pink, 0.5);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+@keyframes modePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+}
