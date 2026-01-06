@@ -1,31 +1,36 @@
 import {
   LayoutDashboard,
-  Dumbbell,
-  Apple,
-  MessageSquare,
-  Users,
-  TrendingUp,
-  Settings,
   Image,
-  Award,
+  Video,
   Star,
+  Medal,
+  MessageSquare,
+  HelpCircle,
   FileText,
-  Calendar,
-  Target,
+  Users,
+  Dumbbell,
   BookOpen,
-  Utensils,
+  Calendar,
+  TrendingUp,
+  Apple,
+  Calculator,
   Pill,
-  StickyNote,
+  FileText as NotesIcon,
+  MessageCircle,
   Bell,
-  CreditCard,
+  Send,
   UserCheck,
+  CreditCard,
+  DollarSign,
+  PlayCircle,
   BarChart3,
   Activity,
+  ClipboardCheck,
+  Settings,
+  UserCircle,
   Shield,
   Globe,
-  LogOut,
-  Video,
-  Medal 
+  LogOut
 } from 'lucide-react';
 
 export const sidebarSections = [
@@ -37,9 +42,10 @@ export const sidebarSections = [
     items: [
       { id: 'logo', label: 'الشعار والعلامة', icon: Image, path: '/content/logo' },
       { id: 'hero', label: 'قسم البطل', icon: Video, path: '/content/hero' },
-        { id: 'certifications', label: 'الشهادات والدورات', icon: Medal, path: '/content/certifications' }, // جديد
       { id: 'about', label: 'عن المدربة', icon: Star, path: '/content/about' },
+      { id: 'certifications', label: 'الشهادات والدورات', icon: Medal, path: '/content/certifications' },
       { id: 'testimonials', label: 'آراء العملاء', icon: MessageSquare, path: '/content/testimonials' },
+      { id: 'faq', label: 'الأسئلة الشائعة', icon: HelpCircle, path: '/content/faq' },
       { id: 'programs-preview', label: 'معاينة البرامج', icon: FileText, path: '/content/programs' },
       { id: 'footer', label: 'محتوى التذييل', icon: LayoutDashboard, path: '/content/footer' }
     ]
@@ -48,9 +54,10 @@ export const sidebarSections = [
     id: 'training',
     title: 'إدارة التدريب',
     icon: Dumbbell,
-    color: '#ff5722',
+    color: '#9c27b0',
     items: [
-      { id: 'programs', label: 'البرامج التدريبية', icon: Target, path: '/training/programs' },
+      { id: 'clients-list', label: 'قائمة المتدربين', icon: Users, path: '/training/clients' },
+      { id: 'training-programs', label: 'البرامج التدريبية', icon: Dumbbell, path: '/training/programs' },
       { id: 'workout-library', label: 'مكتبة التمارين', icon: BookOpen, path: '/training/library' },
       { id: 'weekly-plans', label: 'الخطط الأسبوعية', icon: Calendar, path: '/training/weekly-plans' },
       { id: 'levels', label: 'المستويات', icon: TrendingUp, path: '/training/levels' }
@@ -62,57 +69,64 @@ export const sidebarSections = [
     icon: Apple,
     color: '#4caf50',
     items: [
-      { id: 'meal-plans', label: 'خطط الوجبات', icon: Utensils, path: '/nutrition/meal-plans' },
-      { id: 'calories', label: 'إعدادات السعرات', icon: Activity, path: '/nutrition/calories' },
+      { id: 'meal-plans', label: 'خطط الوجبات', icon: Apple, path: '/nutrition/meal-plans' },
+      { id: 'calories', label: 'إعدادات السعرات', icon: Calculator, path: '/nutrition/calories' },
       { id: 'supplements', label: 'المكملات الغذائية', icon: Pill, path: '/nutrition/supplements' },
-      { id: 'notes', label: 'ملاحظات للعملاء', icon: StickyNote, path: '/nutrition/notes' }
+      { id: 'nutrition-notes', label: 'ملاحظات للعملاء', icon: NotesIcon, path: '/nutrition/notes' }
     ]
   },
   {
     id: 'communication',
     title: 'التواصل',
-    icon: MessageSquare,
+    icon: MessageCircle,
     color: '#2196f3',
-    badge: 5,
     items: [
-      { id: 'chat', label: 'محادثات العملاء', icon: MessageSquare, path: '/communication/chat', badge: 3 },
+      { id: 'chat', label: 'محادثة العملاء', icon: MessageCircle, path: '/communication/chat' },
       { id: 'announcements', label: 'الإعلانات', icon: Bell, path: '/communication/announcements' },
-      { id: 'notifications', label: 'الإشعارات', icon: Bell, path: '/communication/notifications', badge: 2 }
+      { id: 'notifications', label: 'الإشعارات', icon: Send, path: '/communication/notifications' }
     ]
   },
   {
-    id: 'users',
+    id: 'users-payments',
     title: 'المستخدمون والمدفوعات',
     icon: Users,
-    color: '#9c27b0',
+    color: '#ff9800',
     items: [
       { id: 'clients', label: 'قائمة العملاء', icon: Users, path: '/users/clients' },
       { id: 'subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/users/subscriptions' },
       { id: 'payments', label: 'التحويلات البنكية', icon: CreditCard, path: '/users/payments' },
-      { id: 'activation', label: 'التفعيل / التجميد', icon: Shield, path: '/users/activation' }
+      { id: 'activation', label: 'التفعيل / التجميد', icon: PlayCircle, path: '/users/activation' }
     ]
   },
   {
     id: 'reports',
-    title: 'التقدم والتقارير',
-    icon: TrendingUp,
-    color: '#ff9800',
+    title: 'التقارير',
+    icon: BarChart3,
+    color: '#00bcd4',
     items: [
-      { id: 'progress', label: 'تقدم العملاء', icon: TrendingUp, path: '/reports/progress' },
+      { id: 'client-progress', label: 'تقدم العملاء', icon: Activity, path: '/reports/progress' },
       { id: 'charts', label: 'الرسوم البيانية', icon: BarChart3, path: '/reports/charts' },
-      { id: 'checkins', label: 'تسجيلات الدخول', icon: Activity, path: '/reports/checkins' }
+      { id: 'checkins', label: 'تسجيلات الحضور', icon: ClipboardCheck, path: '/reports/checkins' }
     ]
   },
   {
     id: 'settings',
-    title: 'إعدادات النظام',
+    title: 'الإعدادات',
     icon: Settings,
     color: '#607d8b',
     items: [
-      { id: 'profile', label: 'الملف الشخصي', icon: Users, path: '/settings/profile' },
+      { id: 'profile', label: 'الملف الشخصي', icon: UserCircle, path: '/settings/profile' },
       { id: 'security', label: 'الأمان', icon: Shield, path: '/settings/security' },
-      { id: 'language', label: 'اللغة', icon: Globe, path: '/settings/language' },
-      { id: 'logout', label: 'تسجيل الخروج', icon: LogOut, path: '/logout', danger: true }
+      { id: 'language', label: 'اللغة', icon: Globe, path: '/settings/language' }
     ]
+  },
+  {
+    id: 'logout',
+    title: 'تسجيل الخروج',
+    icon: LogOut,
+    color: '#f44336',
+    items: [],
+    action: 'logout',
+    path: '/logout'
   }
 ];

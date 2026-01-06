@@ -7,6 +7,12 @@ import Dashboard from './pages/Dashboard';
 import LogoBranding from './pages/Content/LogoBranding';
 import HeroSection from './pages/Content/HeroSection';
 import Certifications from './pages/Content/Certifications';
+import AboutCoach from './pages/Content/AboutCoach';
+import Testimonials from './pages/Content/Testimonials';
+import FAQ from './pages/Content/FAQ';
+import ClientsList from './pages/Training/ClientsList/ClientsList';
+import ClientDetails from './pages/Training/ClientDetails/ClientDetails';
+
 import './App.scss';
 
 function App() {
@@ -23,12 +29,18 @@ function App() {
               <Route path="logo" element={<LogoBranding />} />
               <Route path="hero" element={<HeroSection />} />
               <Route path="Certifications" element={<Certifications />} />
+              <Route path="AboutCoach" element={<AboutCoach />} />
+              <Route path="Testimonials" element={<Testimonials />} />
+              <Route path="FAQ" element={<FAQ />} />
               <Route path="about" element={<div className="temp-page">About Coach</div>} />
               <Route path="testimonials" element={<div className="temp-page">Testimonials</div>} />
               <Route path="programs" element={<div className="temp-page">Programs Preview</div>} />
               <Route path="footer" element={<div className="temp-page">Footer Content</div>} />
             </Route>
-            
+            <Route path="training">
+              <Route path="clients" element={<ClientsList />} />
+              <Route path="client/:clientId" element={<ClientDetails />} />
+            </Route>
             {/* ... باقي الـ Routes */}
             
             <Route path="*" element={<Navigate to="/" replace />} />

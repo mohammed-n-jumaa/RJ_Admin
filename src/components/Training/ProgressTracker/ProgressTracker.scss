@@ -1,0 +1,267 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.progress-tracker {
+  &__header {
+    margin-bottom: $spacing-xl;
+  }
+  
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+}
+
+// Weekly Overview Card
+.weekly-overview-card {
+  padding: $spacing-xl;
+  background: linear-gradient(135deg, 
+    rgba($primary-pink, 0.1) 0%, 
+    rgba($primary-pink-dark, 0.05) 100%
+  );
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-xl;
+  
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+  
+  &__progress {
+    margin-bottom: $spacing-xl;
+  }
+  
+  &__progress-header {
+    @include flex-between;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__percentage {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-pink;
+  }
+  
+  &__progress-bar {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    background: var(--bg-hover);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  
+  &__progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, $primary-pink 0%, $primary-pink-dark 100%);
+    border-radius: 50px;
+  }
+  
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.weekly-stat {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--bg-card);
+  border-radius: $radius-md;
+  
+  &__icon {
+    @include flex-center;
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-md;
+    flex-shrink: 0;
+    
+    &--workout {
+      background: rgba($primary-pink, 0.1);
+      color: $primary-pink;
+    }
+    
+    &--nutrition {
+      background: rgba($success, 0.1);
+      color: $success;
+    }
+    
+    &--calories {
+      background: rgba($warning, 0.1);
+      color: $warning;
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  
+  &__label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+}
+
+// Daily Progress Section
+.daily-progress-section {
+  margin-bottom: $spacing-xl;
+  
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.daily-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: $spacing-md;
+}
+
+.daily-card {
+  padding: $spacing-md;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  text-align: center;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: $primary-pink;
+  }
+  
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__day {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  &__date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  
+  &__progress-ring {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto $spacing-md;
+    
+    svg {
+      transform: rotate(0deg);
+    }
+  }
+  
+  &__progress-text {
+    @include flex-center;
+    position: absolute;
+    inset: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+  
+  &__detail {
+    @include flex-center;
+    gap: $spacing-xs;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+}
+
+// Achievements Section
+.achievements-section {
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $spacing-md;
+}
+
+.achievement-card {
+  padding: $spacing-lg;
+  background: var(--bg-card);
+  border: 2px solid var(--achievement-color);
+  border-radius: $radius-lg;
+  text-align: center;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(var(--achievement-color), 0.3);
+  }
+  
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}

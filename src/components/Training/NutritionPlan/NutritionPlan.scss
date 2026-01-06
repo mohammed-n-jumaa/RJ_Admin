@@ -1,0 +1,887 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.nutrition-plan {
+  padding: $spacing-md;
+  min-height: 100vh;
+  
+  @include mobile {
+    padding: $spacing-sm;
+  }
+  
+  &__header {
+    margin-bottom: $spacing-xl;
+    
+    @include mobile {
+      margin-bottom: $spacing-lg;
+    }
+  }
+  
+  &__header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    
+    @include mobile {
+      font-size: 1.3rem;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+  &__week-info {
+    padding: 0.6rem 1.2rem;
+    background: rgba($success, 0.1);
+    border: 1px solid $success;
+    border-radius: 50px;
+    color: $success;
+    font-size: 0.9rem;
+    font-weight: 600;
+    
+    @include mobile {
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  &__stats {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background: var(--bg-hover);
+    border-radius: $radius-md;
+    flex-wrap: wrap;
+    
+    @include mobile {
+      padding: $spacing-sm;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: calc(33.333% - 10px);
+    
+    @include mobile {
+      min-width: calc(50% - 8px);
+    }
+  }
+  
+  &__stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    
+    @include mobile {
+      font-size: 0.75rem;
+    }
+  }
+  
+  &__stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    
+    @include mobile {
+      font-size: 1.1rem;
+    }
+  }
+  
+  &__days {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+// Nutrition Day
+.nutrition-day {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: all $transition-normal;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  &--today {
+    border: 2px solid $success;
+    box-shadow: 0 0 20px rgba($success, 0.2);
+  }
+  
+  &__header {
+    cursor: pointer;
+    background: linear-gradient(135deg,
+      rgba($success, 0.05) 0%,
+      rgba($success, 0.02) 100%
+    );
+    transition: all $transition-normal;
+    padding: $spacing-md;
+    
+    @include mobile {
+      padding: $spacing-sm;
+    }
+  }
+  
+  &__header-top {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    
+    @include mobile {
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $spacing-md;
+  }
+  
+  &__chevron {
+    @include flex-center;
+    color: $success;
+    transition: all $transition-normal;
+    flex-shrink: 0;
+    
+    @include mobile {
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  
+  &__title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    @include mobile {
+      flex-wrap: wrap;
+    }
+  }
+  
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    
+    @include mobile {
+      font-size: 1.1rem;
+    }
+  }
+  
+  &__date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+  
+  &__today-badge {
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, $success 0%, darken($success, 10%) 100%);
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    
+    @include mobile {
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+    }
+  }
+  
+  &__stats {
+    display: flex;
+    gap: $spacing-sm;
+    
+    @include mobile {
+      margin-right: auto;
+    }
+  }
+  
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-hover);
+    border-radius: $radius-sm;
+    
+    @include mobile {
+      padding: 0.3rem 0.6rem;
+    }
+  }
+  
+  &__stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    
+    @include mobile {
+      font-size: 1rem;
+    }
+  }
+  
+  &__stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  
+  &__calorie-icon {
+    color: #ff6b6b;
+    margin-bottom: 2px;
+  }
+  
+  &__expand-btn {
+    display: none;
+    
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba($success, 0.1);
+      border: none;
+      border-radius: $radius-sm;
+      color: $success;
+      cursor: pointer;
+      transition: all $transition-normal;
+      
+      &:hover {
+        background: rgba($success, 0.2);
+      }
+    }
+  }
+  
+  &__progress {
+    position: relative;
+    width: 120px;
+    height: 32px;
+    background: var(--bg-hover);
+    border-radius: 50px;
+    overflow: hidden;
+    
+    @include mobile {
+      width: 100px;
+      height: 28px;
+    }
+  }
+  
+  &__progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, $success 0%, darken($success, 10%) 100%);
+    transition: width 0.5s ease;
+  }
+  
+  &__progress-text {
+    @include flex-center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 1;
+    
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+  
+  &__content {
+    padding: $spacing-md;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-hover);
+    
+    @include mobile {
+      padding: $spacing-sm;
+    }
+  }
+  
+  &__meals {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__empty {
+    text-align: center;
+    padding: $spacing-xl;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border-radius: $radius-md;
+    border: 2px dashed var(--border-color);
+    
+    @include mobile {
+      padding: $spacing-lg;
+    }
+  }
+  
+  &__empty-icon {
+    color: $success;
+    opacity: 0.3;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__empty-text {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__empty-sub {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  &__add-meal {
+    @include flex-center;
+    gap: $spacing-xs;
+    width: 100%;
+    padding: 0.7rem;
+    background: transparent;
+    border: 2px dashed var(--border-color);
+    border-radius: $radius-md;
+    color: $success;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: rgba($success, 0.05);
+      border-color: $success;
+    }
+    
+    @include mobile {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Meal Card
+.meal-card {
+  padding: $spacing-lg;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $success;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  @include mobile {
+    padding: $spacing-md;
+  }
+  
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-md;
+    }
+  }
+  
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    flex: 1;
+    
+    @include mobile {
+      width: 100%;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__type-wrapper {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    width: 100%;
+  }
+  
+  &__type {
+    flex: 1;
+    padding: 0.5rem 0.7rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-color);
+    }
+    
+    &:focus {
+      outline: none;
+      background: var(--bg-hover);
+      border-color: $success;
+    }
+    
+    @include mobile {
+      font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+  
+  &__time-wrapper {
+    @include flex-center;
+    gap: $spacing-xs;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  
+  &__time {
+    padding: 0.2rem 0.4rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: $radius-sm;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-color);
+    }
+    
+    &:focus {
+      outline: none;
+      background: var(--bg-hover);
+      border-color: $success;
+    }
+  }
+  
+  &__delete-btn {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: $danger;
+      border-color: $danger;
+      color: #ffffff;
+    }
+    
+    @include mobile {
+      position: absolute;
+      top: $spacing-sm;
+      left: $spacing-sm;
+      background: $danger;
+      color: #ffffff;
+      border-color: $danger;
+    }
+  }
+  
+  &__image-section {
+    margin-bottom: $spacing-md;
+    position: relative;
+  }
+  
+  &__upload-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    width: 100%;
+    padding: 0.7rem;
+    background: transparent;
+    border: 2px dashed var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      border-color: $success;
+      color: $success;
+      background: rgba($success, 0.05);
+    }
+    
+    @include mobile {
+      padding: 0.6rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__add-item {
+    @include flex-center;
+    gap: $spacing-xs;
+    width: 100%;
+    padding: 0.6rem;
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: $radius-sm;
+    color: $success;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: rgba($success, 0.05);
+      border-color: $success;
+    }
+    
+    @include mobile {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Meal Image Preview
+.meal-image-preview {
+  position: relative;
+  
+  img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: $radius-sm;
+  }
+  
+  &__remove {
+    @include flex-center;
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    width: 32px;
+    height: 32px;
+    background: $danger;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: darken($danger, 10%);
+      transform: scale(1.1);
+    }
+    
+    @include mobile {
+      width: 28px;
+      height: 28px;
+      
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}
+
+// Nutrition Item
+.nutrition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $success;
+  }
+  
+  @include mobile {
+    padding: $spacing-xs;
+    gap: $spacing-xs;
+  }
+  
+  &__left, &__right {
+    flex-shrink: 0;
+    
+    @include mobile {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    min-width: 0;
+    
+    @include mobile {
+      gap: 4px;
+    }
+  }
+  
+  &__check {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all $transition-normal;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: $success;
+      transform: scale(1.1);
+    }
+    
+    &--completed {
+      color: $success;
+    }
+    
+    @include mobile {
+      width: 28px;
+      height: 28px;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  
+  &__name {
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $success;
+    }
+    
+    @include mobile {
+      font-size: 0.85rem;
+      padding: 0.4rem;
+    }
+  }
+  
+  &__macros {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xs;
+    
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &__macro {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.4rem 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    
+    @include mobile {
+      padding: 0.3rem 0.4rem;
+      gap: 2px;
+    }
+  }
+  
+  &__macro-icon {
+    @include flex-center;
+    width: 16px;
+    height: 16px;
+    color: $success;
+    opacity: 0.7;
+    
+    @include mobile {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  
+  &__macro input {
+    width: 40px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    
+    &:focus {
+      outline: none;
+    }
+    
+    @include mobile {
+      width: 30px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  &__macro-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+    
+    @include mobile {
+      font-size: 0.65rem;
+    }
+  }
+  
+  &__delete {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+    flex-shrink: 0;
+    
+    &:hover {
+      background: $danger;
+      border-color: $danger;
+      color: #ffffff;
+    }
+    
+    @include mobile {
+      width: 26px;
+      height: 26px;
+      
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+
+// Touch-friendly enhancements
+@media (hover: none) and (pointer: coarse) {
+  .nutrition-item__check,
+  .nutrition-item__delete,
+  .meal-card__delete-btn,
+  .nutrition-day__add-meal,
+  .meal-card__add-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input, textarea, button {
+    font-size: 16px !important;
+  }
+  
+  .nutrition-item__macro input {
+    padding: 8px !important;
+  }
+  
+  .meal-card__time {
+    padding: 8px !important;
+  }
+}
+
+// Tablet-specific styles
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nutrition-plan {
+    padding: $spacing-lg;
+  }
+  
+  .nutrition-day__header {
+    padding: $spacing-lg;
+  }
+  
+  .nutrition-item__macros {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .nutrition-item__macro {
+    flex-direction: column;
+    gap: 2px;
+    
+    input {
+      width: 100%;
+    }
+  }
+}

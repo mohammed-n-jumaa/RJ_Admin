@@ -1,0 +1,1074 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.faq {
+  &__header {
+    margin-bottom: $spacing-xl;
+  }
+  
+  &__header-content {
+    @include flex-between;
+    gap: $spacing-md;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  &__title-section {
+    flex: 1;
+  }
+  
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+    
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  
+  &__save-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-dark 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    box-shadow: 0 4px 15px rgba($primary-pink, 0.3);
+    
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba($primary-pink, 0.5);
+    }
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @include mobile {
+      width: 100%;
+    }
+  }
+  
+  &__alert {
+    @include flex-center;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-md;
+    font-weight: 600;
+    
+    &--success {
+      background: rgba($success, 0.1);
+      border: 1px solid $success;
+      color: $success;
+    }
+  }
+  
+  // Tabs
+  &__tabs {
+    display: flex;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xl;
+    border-bottom: 2px solid var(--border-color);
+    
+    @include mobile {
+      flex-direction: column;
+      border-bottom: none;
+    }
+  }
+  
+  &__tab {
+    @include flex-center;
+    gap: $spacing-xs;
+    position: relative;
+    padding: $spacing-md $spacing-lg;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $primary-pink;
+      transform: scaleX(0);
+      transition: transform $transition-normal;
+    }
+    
+    &:hover {
+      color: $primary-pink;
+    }
+    
+    &--active {
+      color: $primary-pink;
+      
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+    
+    @include mobile {
+      justify-content: center;
+      border: 1px solid var(--border-color);
+      border-radius: $radius-sm;
+      
+      &::after {
+        display: none;
+      }
+      
+      &--active {
+        background: rgba($primary-pink, 0.1);
+        border-color: $primary-pink;
+      }
+    }
+  }
+  
+  &__tab-badge {
+    @include flex-center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: $danger;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Section Settings Card
+.section-settings-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+  
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.form-group {
+  margin-bottom: $spacing-md;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: $spacing-xs;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all $transition-normal;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-pink;
+    box-shadow: 0 0 0 3px rgba($primary-pink, 0.1);
+  }
+}
+
+// Categories List Card
+.categories-list-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  &__add-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.6rem 1rem;
+    background: rgba($primary-pink, 0.1);
+    border: 1px solid $primary-pink;
+    border-radius: $radius-sm;
+    color: $primary-pink;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: rgba($primary-pink, 0.2);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-height: 700px;
+  overflow-y: auto;
+  padding-left: $spacing-xs;
+  @include custom-scrollbar;
+}
+
+// Category Item
+.category-item {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  transition: all $transition-normal;
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__icon {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    color: #ffffff;
+  }
+  
+  &__info {
+    flex: 1;
+  }
+  
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  
+  &__count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-xs;
+  }
+  
+  &__action-btn {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: var(--bg-primary);
+      border-color: $primary-pink;
+      color: $primary-pink;
+    }
+    
+    &--danger:hover {
+      border-color: $danger;
+      color: $danger;
+    }
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  &__form-header {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+  
+  &__icon-input {
+    width: 60px;
+    padding: 0.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    text-align: center;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-pink;
+    }
+  }
+  
+  &__color-input {
+    width: 60px;
+    height: 40px;
+    padding: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      border-color: $primary-pink;
+    }
+  }
+  
+  &__save-btn {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background: $primary-pink;
+    border: none;
+    border-radius: $radius-sm;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: $primary-pink-light;
+      transform: scale(1.05);
+    }
+  }
+  
+  &__input {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-pink;
+    }
+  }
+  
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    padding: $spacing-sm;
+    background: var(--bg-card);
+    border-radius: $radius-sm;
+  }
+  
+  &__add-question-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      border-color: $primary-pink;
+      color: $primary-pink;
+      background: rgba($primary-pink, 0.05);
+    }
+  }
+}
+
+// Question Item
+.question-item {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  transition: all $transition-normal;
+  
+  &__display {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+  
+  &__icon {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    background: rgba($primary-pink, 0.1);
+    border-radius: $radius-sm;
+    color: $primary-pink;
+    flex-shrink: 0;
+  }
+  
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  &__question {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  
+  &__answer {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  &__actions {
+    display: flex;
+    gap: 4px;
+  }
+  
+  &__action-btn {
+    @include flex-center;
+    width: 28px;
+    height: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+    flex-shrink: 0;
+    
+    &:hover {
+      background: var(--bg-primary);
+      border-color: $primary-pink;
+      color: $primary-pink;
+    }
+    
+    &--danger:hover {
+      border-color: $danger;
+      color: $danger;
+    }
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: 0.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-pink;
+    }
+  }
+  
+  &__textarea {
+    width: 100%;
+    padding: 0.6rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-pink;
+    }
+  }
+  
+  &__checkbox {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.4rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+  }
+  
+  &__save-btn {
+    @include flex-center;
+    width: 100%;
+    padding: 0.5rem;
+    background: $primary-pink;
+    border: none;
+    border-radius: $radius-sm;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: $primary-pink-light;
+    }
+  }
+}
+
+// Preview Card
+.preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  position: sticky;
+  top: $spacing-md;
+  
+  &__header {
+    margin-bottom: $spacing-lg;
+  }
+  
+  &__title {
+    @include flex-center;
+    gap: $spacing-sm;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+// FAQ Preview
+.faq-preview {
+  text-align: center;
+  
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-sm;
+    
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: $spacing-xl;
+  }
+}
+
+// Mind Map
+.mind-map {
+  position: relative;
+  min-height: 600px;
+  padding: $spacing-xl;
+  background: var(--bg-hover);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  
+  @include mobile {
+    min-height: 400px;
+    padding: $spacing-md;
+  }
+}
+
+.mind-map-node {
+  position: absolute;
+  animation: nodeFloat 3s ease-in-out infinite;
+  animation-delay: var(--node-delay);
+  
+  &:nth-child(1) { top: 10%; right: 70%; }
+  &:nth-child(2) { top: 15%; right: 20%; }
+  &:nth-child(3) { top: 30%; right: 50%; }
+  &:nth-child(4) { top: 45%; right: 75%; }
+  &:nth-child(5) { top: 50%; right: 15%; }
+  &:nth-child(6) { top: 65%; right: 60%; }
+  &:nth-child(7) { top: 70%; right: 25%; }
+  &:nth-child(8) { top: 80%; right: 70%; }
+  &:nth-child(9) { top: 20%; right: 85%; }
+  &:nth-child(10) { top: 85%; right: 40%; }
+  
+  @include mobile {
+    position: relative;
+    top: auto !important;
+    right: auto !important;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__card {
+    position: relative;
+    padding: 0.8rem 1.5rem;
+    background: var(--node-color, $primary-pink);
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      
+      ~ .mind-map-node__popup {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--node-color));
+      
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  
+  &__icon {
+    @include flex-center;
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    
+    @include mobile {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      margin: $spacing-sm auto 0;
+    }
+  }
+  
+  &__popup {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: 200px;
+    max-width: 300px;
+    padding: $spacing-md;
+    background: var(--bg-card);
+    border: 2px solid var(--node-color);
+    border-radius: $radius-md;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    text-align: right;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    z-index: 10;
+    
+    @include mobile {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      margin-top: $spacing-sm;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 8px solid transparent;
+      border-bottom-color: var(--node-color);
+      
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}
+
+// User Questions Panel
+.user-questions-panel {
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.user-questions-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.user-questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  
+  &__empty {
+    @include flex-center;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-xl;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--bg-hover);
+    border: 2px dashed var(--border-color);
+    border-radius: $radius-md;
+    
+    svg {
+      color: $primary-pink;
+      opacity: 0.5;
+    }
+  }
+}
+
+// User Question Item
+.user-question-item {
+  background: var(--bg-hover);
+  border: 2px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-pink;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  &--answered {
+    border-color: $success;
+  }
+  
+  &--archived {
+    opacity: 0.6;
+  }
+  
+  &__header {
+    @include flex-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+  
+  &__avatar {
+    @include flex-center;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-dark 100%);
+    border-radius: 50%;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+  
+  &__info {
+    flex: 1;
+  }
+  
+  &__name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__meta {
+    @include flex-center;
+    gap: $spacing-xs;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  
+  &__status {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    
+    &--pending {
+      background: rgba($warning, 0.1);
+      border: 1px solid $warning;
+      color: $warning;
+    }
+    
+    &--answered {
+      background: rgba($success, 0.1);
+      border: 1px solid $success;
+      color: $success;
+    }
+    
+    &--archived {
+      background: rgba(var(--text-muted), 0.1);
+      border: 1px solid var(--text-muted);
+      color: var(--text-muted);
+    }
+  }
+  
+  &__question {
+    padding: $spacing-md;
+    background: var(--bg-card);
+    border-radius: $radius-sm;
+    border-right: 3px solid $primary-pink;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: $spacing-md;
+  }
+  
+  &__answer {
+    padding: $spacing-md;
+    background: rgba($success, 0.05);
+    border-radius: $radius-sm;
+    border-right: 3px solid $success;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: $spacing-md;
+  }
+  
+  &__answer-form {
+    margin-bottom: $spacing-md;
+  }
+  
+  &__textarea {
+    width: 100%;
+    padding: $spacing-md;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all $transition-normal;
+    margin-bottom: $spacing-sm;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-pink;
+      box-shadow: 0 0 0 3px rgba($primary-pink, 0.1);
+    }
+  }
+  
+  &__answer-actions {
+    display: flex;
+    gap: $spacing-sm;
+  }
+  
+  &__answer-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.7rem 1.2rem;
+    background: $success;
+    border: none;
+    border-radius: $radius-sm;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: darken($success, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &__cancel-btn {
+    padding: 0.7rem 1.2rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      border-color: $danger;
+      color: $danger;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+  }
+  
+  &__action-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: 0.6rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: var(--bg-primary);
+      border-color: $primary-pink;
+      color: $primary-pink;
+    }
+    
+    &--primary {
+      background: $primary-pink;
+      border-color: $primary-pink;
+      color: #ffffff;
+      
+      &:hover {
+        background: $primary-pink-light;
+        border-color: $primary-pink-light;
+        color: #ffffff;
+      }
+    }
+    
+    &--danger:hover {
+      border-color: $danger;
+      color: $danger;
+    }
+  }
+}
+
+// Animations
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nodeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
