@@ -41,13 +41,11 @@ export const sidebarSections = [
     color: '#e91e63',
     items: [
       { id: 'logo', label: 'الشعار والعلامة', icon: Image, path: '/content/logo' },
-      { id: 'hero', label: 'قسم البطل', icon: Video, path: '/content/hero' },
+      { id: 'hero', label: ' واجهة الموقع', icon: Video, path: '/content/hero' },
       { id: 'about', label: 'عن المدربة', icon: Star, path: '/content/about' },
       { id: 'certifications', label: 'الشهادات والدورات', icon: Medal, path: '/content/certifications' },
       { id: 'testimonials', label: 'آراء العملاء', icon: MessageSquare, path: '/content/testimonials' },
-      { id: 'faq', label: 'الأسئلة الشائعة', icon: HelpCircle, path: '/content/faq' },
-      { id: 'programs-preview', label: 'معاينة البرامج', icon: FileText, path: '/content/programs' },
-      { id: 'footer', label: 'محتوى التذييل', icon: LayoutDashboard, path: '/content/footer' }
+      { id: 'faq', label: 'الأسئلة الشائعة', icon: HelpCircle, path: '/content/faq' }
     ]
   },
   {
@@ -56,25 +54,10 @@ export const sidebarSections = [
     icon: Dumbbell,
     color: '#9c27b0',
     items: [
-      { id: 'clients-list', label: 'قائمة المتدربين', icon: Users, path: '/training/clients' },
-      { id: 'training-programs', label: 'البرامج التدريبية', icon: Dumbbell, path: '/training/programs' },
-      { id: 'workout-library', label: 'مكتبة التمارين', icon: BookOpen, path: '/training/library' },
-      { id: 'weekly-plans', label: 'الخطط الأسبوعية', icon: Calendar, path: '/training/weekly-plans' },
-      { id: 'levels', label: 'المستويات', icon: TrendingUp, path: '/training/levels' }
+      { id: 'clients-list', label: 'قائمة المتدربين', icon: Users, path: '/training/clients' }
     ]
   },
-  {
-    id: 'nutrition',
-    title: 'إدارة التغذية',
-    icon: Apple,
-    color: '#4caf50',
-    items: [
-      { id: 'meal-plans', label: 'خطط الوجبات', icon: Apple, path: '/nutrition/meal-plans' },
-      { id: 'calories', label: 'إعدادات السعرات', icon: Calculator, path: '/nutrition/calories' },
-      { id: 'supplements', label: 'المكملات الغذائية', icon: Pill, path: '/nutrition/supplements' },
-      { id: 'nutrition-notes', label: 'ملاحظات للعملاء', icon: NotesIcon, path: '/nutrition/notes' }
-    ]
-  },
+ 
   {
     id: 'communication',
     title: 'التواصل',
@@ -92,10 +75,8 @@ export const sidebarSections = [
     icon: Users,
     color: '#ff9800',
     items: [
-      { id: 'clients', label: 'قائمة العملاء', icon: Users, path: '/users/clients' },
       { id: 'subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/users/subscriptions' },
       { id: 'payments', label: 'التحويلات البنكية', icon: CreditCard, path: '/users/payments' },
-      { id: 'activation', label: 'التفعيل / التجميد', icon: PlayCircle, path: '/users/activation' }
     ]
   },
   {
@@ -117,7 +98,6 @@ export const sidebarSections = [
     items: [
       { id: 'profile', label: 'الملف الشخصي', icon: UserCircle, path: '/settings/profile' },
       { id: 'security', label: 'الأمان', icon: Shield, path: '/settings/security' },
-      { id: 'language', label: 'اللغة', icon: Globe, path: '/settings/language' }
     ]
   },
   {

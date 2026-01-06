@@ -42,16 +42,7 @@ const Header = ({ currentSection = 'لوحة التحكم' }) => {
         </div>
         
         <div className="header__left">
-          <motion.button
-            className="header__action-btn header__notifications"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Bell size={20} />
-            {notifications > 0 && <Badge count={notifications} pulse />}
-          </motion.button>
-          
-          {/* Theme Toggle Button */}
+           {/* Theme Toggle Button */}
           <motion.button
             className="header__action-btn header__theme-toggle"
             onClick={toggleTheme}
@@ -67,6 +58,16 @@ const Header = ({ currentSection = 'لوحة التحكم' }) => {
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.div>
           </motion.button>
+          <motion.button
+            className="header__action-btn header__notifications"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Bell size={20} />
+            {notifications > 0 && <Badge count={notifications} pulse />}
+          </motion.button>
+          
+         
           
           <motion.button
             className="header__btn header__btn--secondary"
