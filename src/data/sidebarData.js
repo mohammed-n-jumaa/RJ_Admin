@@ -42,7 +42,7 @@ export const sidebarSections = [
     items: [
       { id: 'logo', label: 'الشعار والعلامة', icon: Image, path: '/content/logo' },
       { id: 'hero', label: ' واجهة الموقع', icon: Video, path: '/content/hero' },
-      { id: 'about', label: 'عن المدربة', icon: Star, path: '/content/about' },
+      { id: 'AboutCoach', label: 'عن المدربة', icon: Star, path: '/content/AboutCoach' },
       { id: 'certifications', label: 'الشهادات والدورات', icon: Medal, path: '/content/certifications' },
       { id: 'testimonials', label: 'آراء العملاء', icon: MessageSquare, path: '/content/testimonials' },
       { id: 'faq', label: 'الأسئلة الشائعة', icon: HelpCircle, path: '/content/faq' }
