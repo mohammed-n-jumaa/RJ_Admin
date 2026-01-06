@@ -30,7 +30,9 @@ import {
   UserCircle,
   Shield,
   Globe,
-  LogOut
+  LogOut,
+  // Add Chat icon
+  MessageCircleMore
 } from 'lucide-react';
 
 export const sidebarSections = [
@@ -54,10 +56,11 @@ export const sidebarSections = [
     icon: Dumbbell,
     color: '#9c27b0',
     items: [
-      { id: 'clients-list', label: 'قائمة المتدربين', icon: Users, path: '/training/clients' }
+      { id: 'clients-list', label: 'قائمة المتدربين', icon: Users, path: '/training/clients' },
+      // Add Chat link to training section
+      { id: 'chat', label: 'محادثات المتدربين', icon: MessageCircleMore, path: '/training/chat' }
     ]
   },
- 
   {
     id: 'communication',
     title: 'التواصل',
