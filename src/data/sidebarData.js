@@ -61,10 +61,10 @@ export const sidebarSections = [
       { id: 'chat', label: 'محادثات المتدربين', icon: MessageCircleMore, path: '/training/chat' }
     ]
   },
- 
+
   {
     id: 'Subscriptions',
-    title: 'المستخدمون والمدفوعات',
+    title: 'المدفوعات',
     icon: Users,
     color: '#ff9800',
     items: [

@@ -437,17 +437,7 @@ const SubscriptionModal = ({ isOpen, onClose, subscription, onSave }) => {
                 )}
 
                 {/* التجديد التلقائي */}
-                <div className="form-group full-width">
-                  <label className="checkbox-label">
-                    <input
-                      type="checkbox"
-                      name="autoRenew"
-                      checked={formData.autoRenew}
-                      onChange={handleChange}
-                    />
-                    <span>التجديد التلقائي للاشتراك</span>
-                  </label>
-                </div>
+           
 
                 {/* الملاحظات */}
                 <div className="form-group full-width">
