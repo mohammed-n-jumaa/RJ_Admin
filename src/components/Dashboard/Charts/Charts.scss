@@ -1,0 +1,382 @@
+@import '../../../assets/styles/variables';
+@import '../../../assets/styles/mixins';
+
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  direction: ltr;
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .recharts-wrapper {
+    font-family: inherit;
+    
+    @include mobile {
+      margin: 0 auto !important;
+      direction: ltr !important;
+    }
+  }
+
+  .recharts-surface {
+    overflow: visible;
+    
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+  
+  .recharts-responsive-container {
+    @include mobile {
+      margin: 0 auto;
+    }
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    fill: var(--text-secondary);
+    font-size: 11px;
+
+    @include tablet {
+      font-size: 10px;
+    }
+
+    @include mobile {
+      font-size: 9px;
+    }
+  }
+
+  .recharts-legend-item-text {
+    fill: var(--text-secondary);
+    font-size: 11px;
+
+    @include tablet {
+      font-size: 10px;
+    }
+
+    @include mobile {
+      font-size: 9px;
+    }
+  }
+
+  .recharts-tooltip-wrapper {
+    font-family: inherit;
+    z-index: 100;
+  }
+
+  .recharts-tooltip-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 12px;
+
+    @include mobile {
+      font-size: 11px;
+    }
+  }
+
+  .recharts-tooltip-item {
+    color: var(--text-secondary);
+    font-size: 12px;
+
+    @include mobile {
+      font-size: 11px;
+    }
+  }
+
+  .recharts-default-tooltip {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: $radius-md !important;
+    padding: $spacing-sm !important;
+
+    @include mobile {
+      padding: $spacing-xs !important;
+      max-width: 200px;
+    }
+  }
+
+  // Responsive Legend
+  .recharts-legend-wrapper {
+    @include mobile {
+      bottom: -10px !important;
+    }
+  }
+
+  // Responsive Label
+  .recharts-label {
+    @include mobile {
+      font-size: 9px !important;
+    }
+  }
+}
+
+// Simple Heatmap Styles
+.simple-heatmap {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  
+  @include mobile {
+    overflow-x: scroll;
+    padding: 0;
+  }
+  
+  .heatmap-container {
+    min-width: 100%;
+    padding: 10px;
+
+    @include tablet {
+      min-width: 700px;
+      padding: 8px;
+    }
+
+    @include mobile {
+      min-width: 550px;
+      padding: 8px 5px;
+      margin: 0;
+    }
+  }
+  
+  .heatmap-header {
+    margin-bottom: 15px;
+
+    @include tablet {
+      margin-bottom: 12px;
+    }
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .heatmap-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+
+    @include tablet {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    @include mobile {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+  }
+  
+  .heatmap-legend {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    @include tablet {
+      gap: 8px;
+    }
+
+    @include mobile {
+      gap: 6px;
+    }
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+
+    @include tablet {
+      font-size: 10px;
+      gap: 3px;
+    }
+
+    @include mobile {
+      font-size: 9px;
+      gap: 3px;
+    }
+  }
+  
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 11px;
+      height: 11px;
+    }
+
+    @include mobile {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  .heatmap-grid {
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      font-size: 9px;
+    }
+  }
+  
+  .days-axis {
+    display: grid;
+    grid-template-columns: 70px repeat(7, 1fr);
+    margin-bottom: 5px;
+    gap: 2px;
+
+    @include tablet {
+      grid-template-columns: 65px repeat(7, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 55px repeat(7, 1fr);
+      gap: 1px;
+    }
+  }
+  
+  .day-label {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-hover);
+    border-radius: 4px;
+    text-align: center;
+    padding: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include tablet {
+      height: 28px;
+      font-size: 10px;
+      padding: 0 4px;
+    }
+
+    @include mobile {
+      height: 24px;
+      font-size: 9px;
+      padding: 0 2px;
+    }
+  }
+  
+  .heatmap-main {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hours-axis {
+    display: grid;
+    grid-template-columns: 70px repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 5px;
+
+    @include tablet {
+      grid-template-columns: 65px repeat(7, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 55px repeat(7, 1fr);
+      gap: 1px;
+      margin-bottom: 3px;
+    }
+  }
+  
+  .hour-label {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--bg-hover);
+    border-radius: 3px;
+    text-align: center;
+
+    @include tablet {
+      height: 23px;
+      font-size: 9px;
+    }
+
+    @include mobile {
+      height: 20px;
+      font-size: 8px;
+    }
+  }
+  
+  .heatmap-grid-cells {
+    display: grid;
+    grid-template-columns: 70px repeat(7, 1fr);
+    grid-auto-rows: 30px;
+    gap: 2px;
+
+    @include tablet {
+      grid-template-columns: 65px repeat(7, 1fr);
+      grid-auto-rows: 28px;
+    }
+
+    @include mobile {
+      grid-template-columns: 55px repeat(7, 1fr);
+      grid-auto-rows: 24px;
+      gap: 1px;
+    }
+  }
+  
+  .heatmap-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+    min-width: 0;
+    
+    &:hover {
+      transform: scale(1.05);
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    @include tablet {
+      border-radius: 3px;
+    }
+
+    @include mobile {
+      border-radius: 2px;
+      
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+  
+  .cell-value {
+    font-size: 9px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+
+    @include tablet {
+      font-size: 8px;
+    }
+
+    @include mobile {
+      font-size: 7px;
+    }
+  }
+}

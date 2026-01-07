@@ -63,24 +63,15 @@ export const sidebarSections = [
   },
  
   {
-    id: 'users-payments',
+    id: 'Subscriptions',
     title: 'المستخدمون والمدفوعات',
     icon: Users,
     color: '#ff9800',
     items: [
-      { id: 'Subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/users/Subscriptions' },
-      { id: 'Payments', label: 'التحويلات البنكية', icon: CreditCard, path: '/users/Payments' },
+      { id: 'Subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/Subscriptions/Subscriptions' },
     ]
   },
-  {
-    id: 'reports',
-    title: 'التقارير',
-    icon: BarChart3,
-    color: '#00bcd4',
-    items: [
-      { id: 'charts', label: 'الرسوم البيانية', icon: BarChart3, path: '/reports/charts' },
-    ]
-  },
+
   {
     id: 'settings',
     title: 'الإعدادات',
@@ -88,7 +79,6 @@ export const sidebarSections = [
     color: '#607d8b',
     items: [
       { id: 'profile', label: 'الملف الشخصي', icon: UserCircle, path: '/settings/profile' },
-      { id: 'security', label: 'الأمان', icon: Shield, path: '/settings/security' },
     ]
   },
   {
