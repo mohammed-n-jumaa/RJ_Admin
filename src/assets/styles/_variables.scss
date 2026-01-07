@@ -27,10 +27,29 @@ $primary-pink: #e91e63;
 $primary-pink-light: #f06292;
 $primary-pink-dark: #c2185b;
 
+$primary-purple: #9c27b0;
+$primary-purple-light: #ba68c8;
+$primary-purple-dark: #7b1fa2;
+
+$primary-blue: #2196f3;
+$primary-blue-light: #64b5f6;
+$primary-blue-dark: #1976d2;
+
 $success: #4caf50;
+$success-light: #81c784;
+$success-dark: #388e3c;
+
 $warning: #ff9800;
+$warning-light: #ffb74d;
+$warning-dark: #f57c00;
+
 $danger: #f44336;
+$danger-light: #ef5350;
+$danger-dark: #d32f2f;
+
 $info: #2196f3;
+$info-light: #64b5f6;
+$info-dark: #1976d2;
 
 // Text Colors (for SCSS usage)
 $text-primary: $dark-text-primary;
@@ -52,6 +71,7 @@ $spacing-sm: 1rem;
 $spacing-md: 1.5rem;
 $spacing-lg: 2rem;
 $spacing-xl: 3rem;
+$spacing-xxl: 4rem;
 
 // Transitions
 $transition-fast: 0.2s ease;

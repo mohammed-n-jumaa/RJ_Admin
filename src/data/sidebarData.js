@@ -78,9 +78,7 @@ export const sidebarSections = [
     icon: BarChart3,
     color: '#00bcd4',
     items: [
-      { id: 'client-progress', label: 'تقدم العملاء', icon: Activity, path: '/reports/progress' },
       { id: 'charts', label: 'الرسوم البيانية', icon: BarChart3, path: '/reports/charts' },
-      { id: 'checkins', label: 'تسجيلات الحضور', icon: ClipboardCheck, path: '/reports/checkins' }
     ]
   },
   {

@@ -2,19 +2,20 @@
 @import '../../../assets/styles/mixins';
 
 .clients-list {
-  &__header {
-    margin-bottom: $spacing-xl;
+  // إضافة هذه الخصائص
+  min-height: 100vh; // أو 100% إذا كان العنصر الأب له ارتفاع محدد
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  padding: $spacing-lg;
+  background: var(--bg-primary);
+  
+  @include mobile {
+    padding: $spacing-md;
   }
   
-  &__header-content {
-    @include flex-between;
-    gap: $spacing-md;
-    
-    @include mobile {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
+  // باقي الأنماط كما هي...
   
   &__title-section {
     flex: 1;
@@ -70,7 +71,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: $spacing-md;
-    margin-bottom: $spacing-xl;
+    margin-bottom: $spacing-lg;
     
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
@@ -85,7 +86,9 @@
   &__filters {
     display: flex;
     gap: $spacing-md;
-    margin-bottom: $spacing-xl;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+    width: 100%;
     
     @include mobile {
       flex-direction: column;
@@ -95,11 +98,13 @@
   // Grid
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: $spacing-lg;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-md;
+    grid-auto-rows: minmax(300px, auto);
     
     @include mobile {
       grid-template-columns: 1fr;
+      grid-auto-rows: auto;
     }
   }
   
@@ -111,6 +116,8 @@
     padding: $spacing-xl * 2;
     text-align: center;
     color: var(--text-muted);
+    grid-column: 1 / -1;
+    width: 100%;
     
     svg {
       color: $primary-pink;
@@ -240,9 +247,11 @@
   border: 1px solid var(--border-color);
   border-radius: $radius-md;
   min-width: 200px;
+  flex: 0 1 auto;
   
   @include mobile {
     min-width: auto;
+    flex: 1;
   }
   
   svg {

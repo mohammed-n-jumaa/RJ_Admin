@@ -235,36 +235,36 @@ const ClientsList = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <AnimatePresence>
-          {filteredClients.map((client, index) => (
+        <AnimatePresence mode="wait">
+          {filteredClients.length > 0 ? (
+            filteredClients.map((client, index) => (
+              <motion.div
+                key={client.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <ClientCard
+                  client={client}
+                  onEdit={handleEditClient}
+                  onDelete={handleDeleteClient}
+                />
+              </motion.div>
+            ))
+          ) : (
             <motion.div
-              key={client.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ delay: index * 0.05 }}
+              className="clients-list__empty"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
-              <ClientCard
-                client={client}
-                onEdit={handleEditClient}
-                onDelete={handleDeleteClient}
-              />
+              <Users size={64} />
+              <h3>لا يوجد متدربين</h3>
+              <p>ابدأ بإضافة متدرب جديد باستخدام الزر أعلاه</p>
             </motion.div>
-          ))}
+          )}
         </AnimatePresence>
       </motion.div>
-      
-      {filteredClients.length === 0 && (
-        <motion.div
-          className="clients-list__empty"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <Users size={64} />
-          <h3>لا يوجد متدربين</h3>
-          <p>ابدأ بإضافة متدرب جديد باستخدام الزر أعلاه</p>
-        </motion.div>
-      )}
       
       {/* Add/Edit Modal */}
       <AddClientModal

@@ -14,8 +14,8 @@ import FAQ from './pages/Content/FAQ';
 import ClientsList from './pages/Training/ClientsList/ClientsList';
 import ClientDetails from './pages/Training/ClientDetails/ClientDetails';
 // Add Chat imports
-import ChatList from './pages/Training/Chat/ChatList/ChatList';
-import ChatRoom from './pages/Training/Chat/ChatRoom/ChatRoom';
+import ChatList from './pages/Chat/ChatList/ChatList';
+import ChatRoom from './pages/Chat/ChatRoom/ChatRoom';
 import Subscriptions from './pages/Users/Subscriptions';
 import Payments from './pages/Users/Payments';
 
@@ -36,7 +36,7 @@ function App() {
               <Route path="logo" element={<LogoBranding />} />
               <Route path="hero" element={<HeroSection />} />
               <Route path="certifications" element={<Certifications />} />
-              <Route path="about" element={<AboutCoach />} />
+              <Route path="AboutCoach" element={<AboutCoach />} />
               <Route path="testimonials" element={<Testimonials />} />
               <Route path="faq" element={<FAQ />} />
             </Route>

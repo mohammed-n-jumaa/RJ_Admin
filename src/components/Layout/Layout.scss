@@ -24,14 +24,18 @@
   
   &__content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
     @include custom-scrollbar;
   }
   
   &__content-wrapper {
+    flex: 1;
     padding: $spacing-lg;
     max-width: 1600px;
     margin: 0 auto;
+    width: 100%;
     
     @include mobile {
       padding: $spacing-md;
