@@ -1,0 +1,464 @@
+// src/components/Users/SubscriptionCard.scss
+@import '../../assets/styles/variables';
+@import '../../assets/styles/mixins';
+
+.subscription-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  transition: all $transition-normal;
+  position: relative;
+
+  &:hover {
+    border-color: $primary-pink;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  @include mobile {
+    padding: $spacing-md;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-md;
+    gap: $spacing-md;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__client-info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid $primary-pink;
+    overflow: hidden;
+    flex-shrink: 0;
+    @include flex-center;
+    background: linear-gradient(135deg, $primary-pink 0%, $primary-pink-dark 100%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__avatar-placeholder {
+    color: #ffffff;
+  }
+
+  &__client-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__client-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__client-contact {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__header-actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    flex-shrink: 0;
+  }
+
+  &__status {
+    @include flex-center;
+    gap: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid;
+    white-space: nowrap;
+
+    @include mobile {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  &__more-btn {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all $transition-normal;
+
+    &:hover {
+      background: var(--bg-hover);
+      border-color: $primary-pink;
+      color: $primary-pink;
+    }
+
+    @include mobile {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  // Actions Dropdown
+  &__actions-dropdown {
+    position: absolute;
+    top: 70px;
+    right: $spacing-lg;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-md;
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    min-width: 200px;
+    overflow: hidden;
+
+    @include mobile {
+      top: 100px;
+      right: $spacing-md;
+      min-width: 180px;
+    }
+  }
+
+  .action-btn {
+    @include flex-center;
+    gap: $spacing-sm;
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all $transition-normal;
+    text-align: right;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: var(--bg-hover);
+    }
+
+    &--primary {
+      color: $primary-pink;
+
+      &:hover {
+        color: $primary-pink;
+        background: rgba($primary-pink, 0.1);
+      }
+    }
+
+    &--success {
+      color: $success;
+
+      &:hover {
+        color: $success;
+        background: rgba($success, 0.1);
+      }
+    }
+
+    &--warning {
+      color: $warning;
+
+      &:hover {
+        color: $warning;
+        background: rgba($warning, 0.1);
+      }
+    }
+
+    &--danger {
+      color: $danger;
+
+      &:hover {
+        color: $danger;
+        background: rgba($danger, 0.1);
+      }
+    }
+
+    &--edit {
+      color: $info;
+
+      &:hover {
+        color: $info;
+        background: rgba($info, 0.1);
+      }
+    }
+  }
+
+  // Plan Info
+  &__plan {
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &__plan-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-sm 0;
+
+    @include mobile {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__plan-price {
+    @include flex-center;
+    gap: 4px;
+    color: $primary-pink;
+    font-weight: 700;
+
+    .price {
+      font-size: 1.5rem;
+
+      @include mobile {
+        font-size: 1.3rem;
+      }
+    }
+
+    .currency {
+      font-size: 1rem;
+    }
+
+    .duration {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+  }
+
+  // Progress Bar
+  &__progress {
+    margin-bottom: $spacing-md;
+  }
+
+  &__progress-header {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__remaining-days {
+    @include flex-center;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  &__progress-bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: var(--bg-hover);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50px;
+  }
+
+  &__progress-dates {
+    @include flex-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  // Payment Info
+  &__payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    padding: $spacing-sm;
+    background: var(--bg-hover);
+    border-radius: $radius-md;
+  }
+
+  .payment-info-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 0.9rem;
+
+    @include mobile {
+      font-size: 0.85rem;
+    }
+
+    svg {
+      color: $primary-pink;
+      flex-shrink: 0;
+    }
+
+    .label {
+      color: var(--text-muted);
+      font-weight: 600;
+      min-width: 100px;
+    }
+
+    .value {
+      color: var(--text-primary);
+      font-weight: 500;
+
+      &.transaction-id {
+        font-family: monospace;
+        background: var(--bg-card);
+        padding: 0.2rem 0.5rem;
+        border-radius: $radius-sm;
+        border: 1px solid var(--border-color);
+      }
+    }
+  }
+
+  // Expand Button
+  &__expand-btn {
+    @include flex-center;
+    gap: $spacing-xs;
+    width: 100%;
+    padding: $spacing-sm;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-md;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+
+    &:hover {
+      background: var(--bg-hover);
+      border-color: $primary-pink;
+      color: $primary-pink;
+    }
+  }
+
+  // Expanded Content
+  &__expanded-content {
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid var(--border-color);
+    overflow: hidden;
+  }
+
+  .expanded-section {
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-xs $spacing-sm;
+    background: rgba($success, 0.1);
+    border-radius: $radius-sm;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+
+    svg {
+      color: $success;
+      flex-shrink: 0;
+    }
+  }
+
+  .auto-renew-info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+    background: rgba($primary-pink, 0.1);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-weight: 600;
+
+    svg {
+      color: $primary-pink;
+    }
+  }
+
+  .total-paid {
+    @include flex-center;
+    gap: $spacing-xs;
+    padding: $spacing-md;
+    background: linear-gradient(135deg, 
+      rgba($success, 0.1) 0%, 
+      rgba($success, 0.05) 100%
+    );
+    border-radius: $radius-md;
+    border: 1px solid rgba($success, 0.2);
+
+    svg {
+      color: $success;
+    }
+
+    .amount {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $success;
+    }
+
+    .currency {
+      font-size: 1rem;
+      color: $success;
+      font-weight: 600;
+    }
+  }
+}

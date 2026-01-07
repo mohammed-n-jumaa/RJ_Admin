@@ -16,6 +16,9 @@ import ClientDetails from './pages/Training/ClientDetails/ClientDetails';
 // Add Chat imports
 import ChatList from './pages/Training/Chat/ChatList/ChatList';
 import ChatRoom from './pages/Training/Chat/ChatRoom/ChatRoom';
+import Subscriptions from './pages/Users/Subscriptions';
+import Payments from './pages/Users/Payments';
+
 
 import './App.scss';
 
@@ -46,7 +49,13 @@ function App() {
               <Route path="chat" element={<ChatList />} />
               <Route path="chat/:clientId" element={<ChatRoom />} />
             </Route>
-            
+
+             {/* Users & Subscriptions Routes */}
+            <Route path="users">
+              <Route path="subscriptions" element={<Subscriptions />} />
+              <Route path="payments" element={<Payments />} />
+            </Route>
+
             {/* Communication Routes */}
             <Route path="communication">
               <Route path="chat" element={<div>محادثة العملاء العامة</div>} />

@@ -61,25 +61,15 @@ export const sidebarSections = [
       { id: 'chat', label: 'محادثات المتدربين', icon: MessageCircleMore, path: '/training/chat' }
     ]
   },
-  {
-    id: 'communication',
-    title: 'التواصل',
-    icon: MessageCircle,
-    color: '#2196f3',
-    items: [
-      { id: 'chat', label: 'محادثة العملاء', icon: MessageCircle, path: '/communication/chat' },
-      { id: 'announcements', label: 'الإعلانات', icon: Bell, path: '/communication/announcements' },
-      { id: 'notifications', label: 'الإشعارات', icon: Send, path: '/communication/notifications' }
-    ]
-  },
+ 
   {
     id: 'users-payments',
     title: 'المستخدمون والمدفوعات',
     icon: Users,
     color: '#ff9800',
     items: [
-      { id: 'subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/users/subscriptions' },
-      { id: 'payments', label: 'التحويلات البنكية', icon: CreditCard, path: '/users/payments' },
+      { id: 'Subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/users/Subscriptions' },
+      { id: 'Payments', label: 'التحويلات البنكية', icon: CreditCard, path: '/users/Payments' },
     ]
   },
   {
