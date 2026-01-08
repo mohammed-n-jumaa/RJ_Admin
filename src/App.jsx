@@ -47,9 +47,10 @@ function App() {
             {/* Subscriptions Route - FIXED */}
             <Route path="subscriptions" element={<Subscriptions />} />
             
-            {/* Settings Routes */}
-            <Route path="profile" element={<Profile />} />
-            
+              {/* Settings Routes */}
+            <Route path="settings">
+              <Route path="profile" element={<Profile />} />
+            </Route>
             {/* Catch-all redirect to dashboard */}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Route>
