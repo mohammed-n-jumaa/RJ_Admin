@@ -29,23 +29,27 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             
             {/* Content Management Routes */}
-            <Route path="content/logo" element={<LogoBranding />} />
-            <Route path="content/hero" element={<HeroSection />} />
-            <Route path="content/certifications" element={<Certifications />} />
-            <Route path="content/about" element={<AboutCoach />} />
-            <Route path="content/testimonials" element={<Testimonials />} />
-            <Route path="content/faq" element={<FAQ />} />
+            <Route path="content">
+              <Route path="logo" element={<LogoBranding />} />
+              <Route path="hero" element={<HeroSection />} />
+              <Route path="certifications" element={<Certifications />} />
+              <Route path="AboutCoach" element={<AboutCoach />} />
+              <Route path="testimonials" element={<Testimonials />} />
+              <Route path="faq" element={<FAQ />} />
+            </Route>
             
             {/* Training Routes */}
-            <Route path="training/clients" element={<ClientsList />} />
-            <Route path="training/clients/:id" element={<ClientDetails />} />
-            
-            {/* Chat Routes */}
-            <Route path="chat" element={<ChatList />} />
-            <Route path="chat/:chatId" element={<ChatRoom />} />
-            
-            {/* Subscriptions Route - FIXED */}
+            <Route path="training">
+              <Route path="clients" element={<ClientsList />} />
+              <Route path="client/:clientId" element={<ClientDetails />} />
+              {/* Add Chat Routes */}
+              <Route path="chat" element={<ChatList />} />
+              <Route path="chat/:clientId" element={<ChatRoom />} />
+            </Route>
+
+         {/* Subscriptions Route - FIXED */}
             <Route path="subscriptions" element={<Subscriptions />} />
+
             
               {/* Settings Routes */}
             <Route path="settings">
