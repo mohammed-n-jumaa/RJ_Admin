@@ -144,7 +144,7 @@ const HeroSection = () => {
           <div className="hero-section__title-section">
             <h1 className="hero-section__title">
               <Video size={32} />
-              قسم البطل (Hero Section)
+             ادارة واجهة الموقع
             </h1>
             <p className="hero-section__subtitle">
               قم بتحرير محتوى القسم الرئيسي وفيديو الخلفية
