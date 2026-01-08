@@ -1,4 +1,4 @@
-// App.js - تحديث المسارات
+// App.js - Fixed Routes Configuration
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts';
@@ -12,13 +12,10 @@ import Testimonials from './pages/Content/Testimonials';
 import FAQ from './pages/Content/FAQ';
 import ClientsList from './pages/Training/ClientsList/ClientsList';
 import ClientDetails from './pages/Training/ClientDetails/ClientDetails';
-// Add Chat imports
 import ChatList from './pages/Chat/ChatList/ChatList';
 import ChatRoom from './pages/Chat/ChatRoom/ChatRoom';
 import Subscriptions from './pages/Subscriptions/Subscriptions';
 import Profile from './pages/Profile/Profile';
-
-
 import './App.scss';
 
 function App() {
@@ -27,42 +24,34 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
+            {/* Dashboard */}
+            <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
-
-
+            
             {/* Content Management Routes */}
-            <Route path="content">
-              <Route path="logo" element={<LogoBranding />} />
-              <Route path="hero" element={<HeroSection />} />
-              <Route path="certifications" element={<Certifications />} />
-              <Route path="AboutCoach" element={<AboutCoach />} />
-              <Route path="testimonials" element={<Testimonials />} />
-              <Route path="faq" element={<FAQ />} />
-            </Route>
-
+            <Route path="content/logo" element={<LogoBranding />} />
+            <Route path="content/hero" element={<HeroSection />} />
+            <Route path="content/certifications" element={<Certifications />} />
+            <Route path="content/about" element={<AboutCoach />} />
+            <Route path="content/testimonials" element={<Testimonials />} />
+            <Route path="content/faq" element={<FAQ />} />
+            
             {/* Training Routes */}
-            <Route path="training">
-              <Route path="clients" element={<ClientsList />} />
-              <Route path="client/:clientId" element={<ClientDetails />} />
-              {/* Add Chat Routes */}
-              <Route path="chat" element={<ChatList />} />
-              <Route path="chat/:clientId" element={<ChatRoom />} />
-            </Route>
-
-            {/* Users & Subscriptions Routes */}
-            <Route path="Subscriptions">
-              <Route path="subscriptions" element={<Subscriptions />} />
-            </Route>
-
-
-
+            <Route path="training/clients" element={<ClientsList />} />
+            <Route path="training/clients/:id" element={<ClientDetails />} />
+            
+            {/* Chat Routes */}
+            <Route path="chat" element={<ChatList />} />
+            <Route path="chat/:chatId" element={<ChatRoom />} />
+            
+            {/* Subscriptions Route - FIXED */}
+            <Route path="subscriptions" element={<Subscriptions />} />
+            
             {/* Settings Routes */}
-            <Route path="settings">
-              <Route path="profile" element={<Profile />} />
-            </Route>
-
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="profile" element={<Profile />} />
+            
+            {/* Catch-all redirect to dashboard */}
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Route>
         </Routes>
       </BrowserRouter>

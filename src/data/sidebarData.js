@@ -67,7 +67,7 @@ export const sidebarSections = [
     icon: Users,
     color: '#ff9800',
     items: [
-      { id: 'subscriptions-status', label: 'حالة الاشتراكات', icon: UserCheck, path: '/subscriptions' }
+      { id: 'subscriptions', label: 'حالة الاشتراكات', icon: UserCheck, path: '/subscriptions' }
     ]
   },
 
