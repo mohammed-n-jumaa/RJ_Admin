@@ -19,26 +19,35 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(
-      circle at 30% 50%, 
-      rgba($primary-pink, 0.1) 0%, 
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 70% 50%, 
-      rgba($primary-purple, 0.1) 0%, 
-      transparent 50%
-    );
+    background: radial-gradient(circle at 30% 50%,
+        rgba($primary-pink, 0.1) 0%,
+        transparent 50%),
+      radial-gradient(circle at 70% 50%,
+        rgba($primary-purple, 0.1) 0%,
+        transparent 50%);
     animation: backgroundMove 20s ease-in-out infinite;
     pointer-events: none;
   }
 }
 
 @keyframes backgroundMove {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(-5%, 5%); }
-  50% { transform: translate(5%, -5%); }
-  75% { transform: translate(-5%, -5%); }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-5%, 5%);
+  }
+
+  50% {
+    transform: translate(5%, -5%);
+  }
+
+  75% {
+    transform: translate(-5%, -5%);
+  }
 }
 
 .login-container {
@@ -106,8 +115,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .brand-content h1 {
@@ -137,12 +153,12 @@
   flex-direction: column;
   gap: $spacing-md;
   margin-top: $spacing-xl;
-  
+
   // إخفاء البطاقات في الموبايل
   @include mobile {
     display: none;
   }
-  
+
   // عرض البطاقات في التابلت والكمبيوتر
   @include tablet {
     display: flex;
@@ -309,7 +325,7 @@
     right: $spacing-sm;
     color: var(--text-muted);
     transition: color $transition-normal;
-    
+
     // إصلاح: جعل الأيقونة تظهر على اليسار في النص العربي
     &:first-child {
       right: auto;
@@ -356,6 +372,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: -16px;
 
   &:hover {
     color: $primary-pink;
@@ -494,7 +511,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .demo-credentials {
@@ -527,16 +546,12 @@
 body.light-mode {
   .login-page {
     &::before {
-      background: radial-gradient(
-        circle at 30% 50%, 
-        rgba($primary-pink, 0.05) 0%, 
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 70% 50%, 
-        rgba($primary-purple, 0.05) 0%, 
-        transparent 50%
-      );
+      background: radial-gradient(circle at 30% 50%,
+          rgba($primary-pink, 0.05) 0%,
+          transparent 50%),
+        radial-gradient(circle at 70% 50%,
+          rgba($primary-purple, 0.05) 0%,
+          transparent 50%);
     }
   }
 
@@ -556,7 +571,7 @@ body.light-mode {
     .brand-subtitle {
       margin-bottom: $spacing-md;
     }
-    
+
     // إضافة فاصل مرئي بديل للبطاقات المخفية
     &::after {
       content: '💪 📊 💬';

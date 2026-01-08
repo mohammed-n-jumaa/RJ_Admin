@@ -179,17 +179,7 @@ const Login = () => {
                 </div>
               )}
 
-              {/* Remember Me & Forgot Password */}
-              <div className="form-options">
-                <label className="remember-me">
-                  <input type="checkbox" />
-                  <span>تذكرني</span>
-                </label>
-                <button type="button" className="forgot-password">
-                  نسيت كلمة المرور؟
-                </button>
-              </div>
-
+             
               {/* Submit Button */}
               <button
                 type="submit"
