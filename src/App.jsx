@@ -16,6 +16,7 @@ import ClientDetails from './pages/Training/ClientDetails/ClientDetails';
 import ChatList from './pages/Chat/ChatList/ChatList';
 import ChatRoom from './pages/Chat/ChatRoom/ChatRoom';
 import Subscriptions from './pages/Subscriptions/Subscriptions';
+import Profile from './pages/Profile/Profile';
 
 
 import './App.scss';
@@ -54,30 +55,11 @@ function App() {
               <Route path="subscriptions" element={<Subscriptions />} />
             </Route>
 
-            {/* Communication Routes */}
-            <Route path="communication">
-              <Route path="chat" element={<div>محادثة العملاء العامة</div>} />
-              <Route path="announcements" element={<div>الإعلانات</div>} />
-              <Route path="notifications" element={<div>الإشعارات</div>} />
-            </Route>
 
-            {/* Users & Payments Routes */}
-            <Route path="users">
-              <Route path="subscriptions" element={<div>حالة الاشتراكات</div>} />
-              <Route path="payments" element={<div>التحويلات البنكية</div>} />
-            </Route>
-
-            {/* Reports Routes */}
-            <Route path="reports">
-              <Route path="progress" element={<div>تقدم العملاء</div>} />
-              <Route path="charts" element={<div>الرسوم البيانية</div>} />
-              <Route path="checkins" element={<div>تسجيلات الحضور</div>} />
-            </Route>
 
             {/* Settings Routes */}
             <Route path="settings">
-              <Route path="profile" element={<div>الملف الشخصي</div>} />
-              <Route path="security" element={<div>الأمان</div>} />
+              <Route path="profile" element={<Profile />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />
